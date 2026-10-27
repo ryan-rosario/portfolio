@@ -1,6 +1,6 @@
 import './Platform.css'
 
-const RING_SIZES = [800, 550, 400, 250]
+const RING_SIZES = [600, 450, 300, 150]
 
 function Platform() {
 
