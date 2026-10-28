@@ -1,0 +1,31 @@
+.beam {
+    position: fixed;
+    bottom: 350px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 60vh;
+    pointer-events: none;
+}
+
+
+
+
+.beam-core {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, transparent, var(--accent) 30%, #ffffff 50%, var(--accent) 70%, transparent);
+    mask-image: linear-gradient(to top, black 40%, transparent 100%);
+}
+
+.beam-glow {
+    position: absolute;
+    top:0;
+    left: 50%;
+    width: 300px;
+    height: 100%;
+    background: linear-gradient(to right, transparent, var(--accent), transparent);
+    filter: blur(30px);
+    opacity: 0.5;
+    mask-image: linear-gradient(to top, black 60%, transparent 100%);
+}
