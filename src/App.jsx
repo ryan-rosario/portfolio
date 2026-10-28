@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { Component, useState } from "react"
 import Platform from "./components/Platform"
 
 import Welcome from "./sections/Welcome"
@@ -8,14 +8,33 @@ import Projects from "./sections/Projects"
 import Skills from "./sections/Skills"
 import Contact from "./sections/Contact"
 
+const SECTIONS = {
+  welcome: { label: "Welcome", component: <Welcome /> },
+  about: { label: "About", component: <About /> },
+  experience: { label: "Experience", component: <Experience /> },
+  projects: { label: "Projects", component: <Projects /> },
+  skills: { label: "Skills", component: <Skills /> },
+  contact: { label: "Contact", component: <Contact /> }
+}
+
+
 function App() {
 
-  const [active, setActive] = useState(<Welcome />)
+  const [active, setActive] = useState("welcome")
+
 
 
   return (
     <>
       <Platform />
+      <nav>
+        {Object.entries(SECTIONS).map(([key, { label }]) => (
+          <button key={key} type="button" onClick={() => setActive(key)}>
+            {label}
+          </button>
+        ))}
+      </nav>
+      {SECTIONS[active].component}
     </>
   )
 }
